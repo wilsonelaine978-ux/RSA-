@@ -1,0 +1,11 @@
+{
+  "name": "rsa-demo-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "generate:keys": "node tools/generate-demo-keys.mjs",
+    "test": "node tests/rsa-roundtrip.mjs && node tests/browser-libs-roundtrip.mjs"
+  }
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RSA 加密网站</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="signature-bar">
+      <span>黄冈师范学院——应数2401-刘帅制作</span>
+      <span>发送方：公钥加密</span>
+    </div>
+
+    <nav class="top-nav" aria-label="主导航">
+      <a class="brand" href="./index.html">RSA 演示系统</a>
+      <div>
+        <a class="active" href="./encrypt.html">加密网站</a>
+        <a href="./decrypt.html">解密网站</a>
+      </div>
+    </nav>
+
+    <header class="page-hero">
+      <section>
+        <p class="eyebrow">Sender Website</p>
+        <h1>RSA 加密网站</h1>
+        <p class="lead">在发送方页面输入短消息，只使用公钥加密，生成的密文再交给解密网站。</p>
+      </section>
+      <div class="hero-badge">Public Key Only</div>
+    </header>
+
+    <main class="two-column-layout">
+      <section class="panel">
+        <div class="stage-title">
+          <span class="step-dot">1</span>
+          <div>
+            <h2>输入明文</h2>
+            <p>明文会在本地浏览器中加密，不会上传到服务器。</p>
+          </div>
+        </div>
+        <textarea id="plainText" spellcheck="false"></textarea>
+        <div class="toolbar">
+          <button type="button" id="encryptBtn">生成密文</button>
+          <button class="ghost" type="button" id="sampleBtn">填入演示文本</button>
+          <span class="hint" id="plainHint">0 字节</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="stage-title">
+          <span class="step-dot">2</span>
+          <div>
+            <h2>输出密文</h2>
+            <p>复制密文，或一键发送到解密网站继续演示。</p>
+          </div>
+        </div>
+        <textarea id="cipherText" spellcheck="false" placeholder="点击“生成密文”后显示 Base64 密文"></textarea>
+        <div class="toolbar">
+          <button type="button" id="sendToDecryptBtn">发送到解密网站</button>
+          <button class="ghost" type="button" data-copy="cipherText">复制密文</button>
+          <span class="status-pill neutral" id="encryptStatus">等待加密</span>
+        </div>
+      </section>
+
+      <aside class="panel key-panel narrow">
+        <div class="stage-title">
+          <span class="step-dot">K</span>
+          <div>
+            <h2>加密端公钥</h2>
+            <p>加密网站只需要公钥，不需要私钥。</p>
+          </div>
+        </div>
+        <label for="publicKey">Public Key</label>
+        <textarea id="publicKey" class="key-box" spellcheck="false"></textarea>
+        <button class="ghost compact" type="button" data-copy="publicKey">复制公钥</button>
+      </aside>
+    </main>
+
+    <footer class="app-footer">
+      <span id="keyMeta">密钥信息加载中...</span>
+      <span>下一步：把密文交给解密网站。</span>
+    </footer>
+
+    <script src="./keys/demo-keys.js"></script>
+    <script src="./src/rsa-encrypt-lib.js"></script>
+    <script src="./src/encrypt-page.js"></script>
+  </body>
+</html>

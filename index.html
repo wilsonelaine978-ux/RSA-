@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RSA 加密解密演示系统</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="signature-bar">
+      <span>黄冈师范学院——应数2401-刘帅制作</span>
+      <span>GitHub Pages 静态演示版</span>
+    </div>
+
+    <nav class="top-nav" aria-label="主导航">
+      <a class="brand" href="./index.html">RSA 演示系统</a>
+      <div>
+        <a href="./encrypt.html">加密网站</a>
+        <a href="./decrypt.html">解密网站</a>
+      </div>
+    </nav>
+
+    <header class="home-hero">
+      <p class="eyebrow">Public Key Cryptography Demonstration</p>
+      <h1>两个网站演示 RSA：发送方加密，接收方解密</h1>
+      <p class="lead">
+        本项目适合长期部署到 GitHub Pages。加密网站只使用公钥，解密网站使用私钥，
+        更贴近真实的信息传递流程。
+      </p>
+      <div class="home-actions">
+        <a class="button-link primary" href="./encrypt.html">进入加密网站</a>
+        <a class="button-link secondary" href="./decrypt.html">进入解密网站</a>
+      </div>
+    </header>
+
+    <main class="home-grid">
+      <section class="info-card">
+        <span class="card-index">01</span>
+        <h2>加密网站</h2>
+        <p>输入明文后，浏览器调用加密库和 RSA 公钥生成 Base64 密文。</p>
+        <code>src/rsa-encrypt-lib.js</code>
+      </section>
+      <section class="info-card">
+        <span class="card-index">02</span>
+        <h2>密文传递</h2>
+        <p>密文可以复制，也可以通过页面按钮带到解密网站进行现场演示。</p>
+        <code>localStorage / clipboard</code>
+      </section>
+      <section class="info-card">
+        <span class="card-index">03</span>
+        <h2>解密网站</h2>
+        <p>粘贴密文后，浏览器调用解密库和 RSA 私钥还原明文。</p>
+        <code>src/rsa-decrypt-lib.js</code>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>算法：RSA-OAEP / SHA-256 / 2048-bit</span>
+      <span>说明：内置私钥仅用于课堂演示，不用于真实业务。</span>
+    </footer>
+  </body>
+</html>
